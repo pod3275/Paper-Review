@@ -3,4 +3,4 @@
 
 ## 1. 논문 목록
 ### NLP (Natural Language Processing)
-[1] Yonatan Bellnkov, Yonata Bisk, "Synthetic And Natural Noise Both Break Neural Machine Translation"
+[1] Yonatan Bellnkov, Yonata Bisk, "**Synthetic And Natural Noise Both Break Neural Machine Translation**", ICLR 2018, 2018.02.02, [[pdf]](https://arxiv.org/pdf/1711.02173)
