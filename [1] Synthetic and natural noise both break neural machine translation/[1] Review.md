@@ -25,7 +25,7 @@
 본 논문에서는 기존 NMT 모델의 robustness를 증가시키기 위한 두 가지 방안을 제시한다. 첫 번째는 **word embedding 표현에 있어서 structure-invariant한 표현법을 제시**하는 것이고, 두 번째는 **noise가 섞인 데이터를 이용하여 adversarial training**을 하는 것이다. 결국에는 자연적인(natural) 혹은 합성한(synthetic) noise가 포함된 텍스트를 training set으로 하여 NMT 모델을 학습시키는 방법이 가장 효과적이었다. **본 논문의 point는 synthetic noise를 생성하는 방식이며, natural noise를 어떻게 최대한 cover할지에 대한 논의를 제기**한다.
 
 ## 2. Adversarial example
- Adversarial example은 머신 러닝 모델이 실 세계에서 적용되는 것이 매우 위험하다는 사실을 증명한다. 개념은 input에 아주 작은 변화를 줌으로써 머신 러닝 모델이 이를 알아보지 못하여 전혀 다른 결과를 내놓게 만들고, 이를 통해 머신 러닝의 큰 실패를 유도하는 것이다. 예를 들어, 아래 그림과 같이 인간이 알아보지 못하는 아주 작은 change가 섞인 두 이미지를 classification하였을 때, 두 결과가 완전히 반대 혹은 서로 관련 없게 나타날 수 있다.
+ Adversarial example은 머신 러닝 모델이 실 세계에서 적용되는 것이 매우 위험하다는 사실을 증명한다. 개념은 **input에 아주 작은 변화**를 줌으로써 머신 러닝 모델이 이를 알아보지 못하여 전혀 다른 결과를 내놓게 만들고, 이를 통해 머신 러닝의 큰 실패를 유도하는 것이다. 예를 들어, 아래 그림과 같이 인간이 알아보지 못하는 아주 작은 change가 섞인 두 이미지를 classification하였을 때, 두 결과가 완전히 반대 혹은 서로 관련 없게 나타날 수 있다.
 
 ![image](https://user-images.githubusercontent.com/26705935/40494041-e95a0776-5fae-11e8-93ea-eab617f6dfdc.png)
 > (출처 : https://blog.openai.com/adversarial-example-research/)
@@ -39,7 +39,7 @@
 
 ![image](https://user-images.githubusercontent.com/26705935/40494148-2194268a-5faf-11e8-97e3-2da9031a7246.png)
 
- 다음은 본 논문의 point인, noise가 섞인 텍스트를 생성 방안이다. 저자들은 noise를 크게 자연적인(natural) noise와 합성(synthetic) noise로 나눈다. 자연 noise는 실제로 인간이 만들어내는 noise이고, 합성 noise는 여러 요인들에 의해 이렇게 만들어질 것이다 라고 예측하여 만들어낸 noise이다. 사실 “자연적”으로 만들어진다는 것의 정의가 모호하다고 생각한다. 인간이 “자연”스럽게 만드는 noise는 어떤 방식인가? 결국 keyboard로 입력하는 text라면 합성 noise와 크게 다를 바가 없지 않을까? 하지만 뒤의 결과를 보면 합성 noise는 cover되지만 자연 noise는 cover하지 못하는 현상을 볼 수 있다. 자연 noise에는 어떤 데이터들이 있는지, 그것이 합성 noise와 어떻게 다른 지 실제로 보고 싶은 생각이 들었다.
+ 다음은 본 논문의 point인, noise가 섞인 텍스트를 생성 방안이다. 저자들은 noise를 크게 **자연적인(natural) noise**와 **합성(synthetic) noise**로 나눈다. 자연 noise는 실제로 인간이 만들어내는 noise이고, 합성 noise는 여러 요인들에 의해 이렇게 만들어질 것이다 라고 예측하여 만들어낸 noise이다. 사실 “자연적”으로 만들어진다는 것의 정의가 모호하다고 생각한다. 인간이 “자연”스럽게 만드는 noise는 어떤 방식인가? 결국 keyboard로 입력하는 text라면 합성 noise와 크게 다를 바가 없지 않을까? 하지만 뒤의 결과를 보면 합성 noise는 cover되지만 자연 noise는 cover하지 못하는 현상을 볼 수 있다. 자연 noise에는 어떤 데이터들이 있는지, 그것이 합성 noise와 어떻게 다른 지 실제로 보고 싶은 생각이 들었다.
  
  자연 noise는 기존의 (TED 말뭉치와는 다른)말뭉치에서 발생한, 수정 가능한 error(오타, 스펠링 오류, 문자 누락 등)을 추출한다. 이후 TED 말뭉치 내에서 변환할 수 있는 모든 단어들을 natural noise가 섞인 단어로 변환하였다. 변환 비율은 아래와 같다.
 
@@ -52,9 +52,9 @@
  만드는 구조를 보면 썩 괜찮아 보인다. 인간이 발생시키는 noise가 섞인 단어들을 어느정도 cover할 수 있을 것이라고 생각 들었다. 근데 막상 결과를 보면 natural noise를 cover하지 못하는 현상을 볼 수 있다.
  
  ## 4. 첫 번째 실험
-첫 번째 실험은 Vanilla text로 학습하고, noise text를 test set으로 하여 번역의 성능을 판별한다. 판별 기준은 BLEU score인데, BLEU score는 기계 학습이 번역한 텍스트가 인간이 만들어 내는 것과 얼마나 유사한지를 기준으로 기계 학습의 성능을 측정하는 도표이다.
+첫 번째 실험은 Vanilla text로 학습하고, noise text를 test set으로 하여 번역의 성능을 판별한다. 판별 기준은 BLEU score인데, **BLEU score**는 기계 학습이 번역한 텍스트가 인간이 만들어 내는 것과 얼마나 유사한지를 기준으로 기계 학습의 성능을 측정하는 도표이다.
 
-모델은 총 3가지의 서로 다른 NMT 모델을 사용하였다. Char2char 모델(Lee et al., 2017)은 attention 기법을 이용한sequence-to-sequence model으로, 복잡한 encoder 및 standard recurrent decoder를 가진다. Nematus 모델(Sennrich et al., 2017)은 WMT라는 기계 번역 워크샵에서 가장 우수한 성능을 보인 모델이다. 마지막으로 charCNN 모델은 word representation 기반의 character cNN 모델이다. 이는 형태학적으로 풍부한 특성을 가진 언어에서 좋은 성능을 보인다고 한다. (Kim et al., 2015; Belinkov & Glass, 2016; Costa-juss`a & Fonollosa, 2016; Sajjad et al., 2017)
+모델은 총 3가지의 서로 다른 NMT 모델을 사용하였다. **Char2char 모델**(Lee et al., 2017)은 attention 기법을 이용한sequence-to-sequence model으로, 복잡한 encoder 및 standard recurrent decoder를 가진다. **Nematus 모델**(Sennrich et al., 2017)은 WMT라는 기계 번역 워크샵에서 가장 우수한 성능을 보인 모델이다. 마지막으로 **charCNN 모델**은 word representation 기반의 character cNN 모델이다. 이는 형태학적으로 풍부한 특성을 가진 언어에서 좋은 성능을 보인다고 한다. (Kim et al., 2015; Belinkov & Glass, 2016; Costa-juss'a & Fonollosa, 2016; Sajjad et al., 2017)
 
 3가지 모델 및 위에서 설명한 데이터를 이용하여 한 실험의 결과는 당연히 아래 표와 같이 잘 안 나온다. 이것은 논문이 작성된 이유이기도 하다.
 
@@ -62,15 +62,15 @@
 
 특히 독일 사람은 noise가 섞인 text를 보고 robust한 system에 의해 그 의미를 잘 이해하는 반면, 3가지 NMT 모델은 모두 말이 되지 않는 번역 결과를 내놓는다. 이로써 기존의 기계 번역 시스템은 noise가 섞인 text에 매우 취약하다는 것을 보인다.
 
-단순히 spell check를 한 후에 checking된 text를 번역하면 성공할 수 있지 않나? 라는 의문을 가진 사람들을 위해 저자는 친절하게 한 번 더 실험한다. Noise text를 google의 spell-checker로 spelling check를 하고, 그 text로 번역 성능을 평가한다. Spelling check를 했을 때, 안 한 noise text보다 BLEU 점수가 5점 가량 상승하지만, 여전히 vanilla text를 번역할 때보다 성능이 낮게 나타난다. 표는 생략하겠다.
+단순히 spell check를 한 후에 checking된 text를 번역하면 성공할 수 있지 않나? 라는 의문을 가진 사람들을 위해 저자는 친절하게 한 번 더 실험한다. Noise text를 google의 spell-checker로 spelling check를 하고, 그 text로 번역 성능을 평가한다. Spelling check를 했을 때, 안 한 noise text보다 BLEU 점수가 5점 가량 상승하지만, 여전히 vanilla text를 번역할 때보다 성능이 낮게 나타난다. 결과 표는 생략하겠다.
 
 ## 5. 제안 기법
 
 기존 NMT 모델의 취약함 + spell checker로도 cover되지 않음을 보인 저자들은 자신들만의 방식을 제안한다.(사실 자신들만의 방식 이라기엔 기술적인 contribution은 별로 없다.) 
 
-첫 번째로 새로운 word embedding 표현법을 제안한다. 기존의 word embedding값을 얻는 방식은, 단어 내의 문자의 순서에 예민하다. 그래서 문자의 순서를 바꾸는 swap, middle, random인 합성 noise에 취약한 모습을 보였다. 저자들은 새로이 구조적으로 불변하는 단어 표현법(structure invariant word representation)을 제안한다. 말은 거창하지만, 그냥 단순히 단어의 embedding 값으로 단어를 구성하는 각 문자의 embedding 값의 average를 쓰자는 것이다. (meanChar 모델이라고 저자들은 명명하였다.) 이렇게 되면 당연히 문자간의 순서에 independent해진다. 그럼에도 불구하고 다른 noise (keybord noise 혹은 natural noise)는 cover되지 않고, 낮은 성능을 보인다. 아쉽지만 이 방법은 accept되지 않는다.
+첫 번째로 새로운 word embedding 표현법을 제안한다. 기존의 word embedding값을 얻는 방식은, 단어 내의 문자의 순서에 예민하다. 그래서 문자의 순서를 바꾸는 swap, middle, random인 합성 noise에 취약한 모습을 보였다. 저자들은 새로이 **구조적으로 불변하는 단어 표현법(structure invariant word representation)** 을 제안한다. 말은 거창하지만, 그냥 단순히 단어의 embedding 값으로 단어를 구성하는 각 문자의 embedding 값의 average를 쓰자는 것이다. (**meanChar 모델**이라고 저자들은 명명하였다.) 이렇게 되면 당연히 문자간의 순서에 independent해진다. 그럼에도 불구하고 다른 noise (keybord noise 혹은 natural noise)는 cover되지 않고, 낮은 성능을 보인다. 아쉽지만 이 방법은 accept되지 않는다.
 
-두 번째는 학습 데이터에 noise가 섞인 text를 이용하자는 것이다. 이렇게 하면 noise가 섞인 text도 충분히 cover되어 높은 성능을 보일 것이다. 어찌 보면 당연한 소리다. 실험은 charCNN NMT 모델만을 이용하여 하였고, 아래 표와 같이 당연하게도 특정 종류의 noise로 학습한 모델은 그 종류의 noise에 대해 견고한 결과를 보인다. 하지만 한 종류의 noise로 학습한 모델은 다른 종류의 noise를 cover하지 못한다. 따라서 저자들은 여러 종류의 noise를 섞인 데이터로 모델을 학습시켰고, 결과적으로 random, keyboard, natural noise를 섞은 데이터로 학습한 것이 두루두루 좋은 성능을 나타내는 것을 볼 수 있다.
+두 번째는 학습 데이터에 noise가 섞인 text를 이용하자는 것이다. 이렇게 하면 noise가 섞인 text도 충분히 cover되어 높은 성능을 보일 것이다. 어찌 보면 당연한 소리다. 실험은 charCNN NMT 모델만을 이용하여 하였고, 아래 표와 같이 당연하게도 특정 종류의 noise로 학습한 모델은 그 종류의 noise에 대해 견고한 결과를 보인다. 하지만 한 종류의 noise로 학습한 모델은 다른 종류의 noise를 cover하지 못한다. 따라서 저자들은 여러 종류의 noise를 섞인 데이터로 모델을 학습시켰고, 결과적으로 **random, keyboard, natural noise를 섞은 데이터**로 학습한 것이 두루두루 좋은 성능을 나타내는 것을 볼 수 있다.
 
 ![image](https://user-images.githubusercontent.com/26705935/40530635-84953a78-6034-11e8-9c94-fbc021a4f1cb.png)
 
