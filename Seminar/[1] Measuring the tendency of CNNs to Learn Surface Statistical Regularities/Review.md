@@ -1,7 +1,4 @@
-# 세미나 메모
- - 논문 세미나때 했던 필기들
- 
-## (1) Measuring the tendency of CNNs to Learn Surface Statistical Regularities
+# [1] Measuring the tendency of CNNs to Learn Surface Statistical Regularities
  - ArXiv:1706.07068v1, Jason Jo, and Yoshua Bengio (Universit´e de Montr´eal), [pdf](https://arxiv.org/pdf/1711.11561.pdf)
  
  - CNN을 공격(제 기능을 하지 못하도록)하는 여러 방법들.
