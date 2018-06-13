@@ -10,3 +10,6 @@
 [3] Guillaume Lample, Alexis Conneau, Ludovic Denoyer, Marc'Aurelio Ranzato, "**Unsupervised Machine Translation Using Monolingual Corpora Only**", ICLR 2018, (last revised) 2018.04.13, [[pdf]](https://arxiv.org/pdf/1711.00043.pdf)
 
 [4] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, "**Attention Is All You Need**", NIPS 2017, [[pdf]](http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf)
+
+### Deep Learning
+[1] Günter Klambauer, Thomas Unterthiner, Andreas Mayr, Sepp Hochreiter, "**Self-Normalizing Neural Networks**", NIPS 2017, [[pdf]](http://papers.nips.cc/paper/6698-self-normalizing-neural-networks.pdf)
