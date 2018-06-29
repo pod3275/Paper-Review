@@ -1,7 +1,5 @@
 # Measuring the tendency of CNNs to Learn Surface Statistical Regularities
- - 저자 : Jason Jo, and Yoshua Bengio (Universit´e de Montr´eal)
- - 학회 : ArXiv:1706.07068v1
- - 논문 링크 : [[pdf]](https://arxiv.org/pdf/1711.11561.pdf)
+ - Jason Jo, and Yoshua Bengio (Universit´e de Montr´eal), ArXiv:1706.07068v1, [[pdf]](https://arxiv.org/pdf/1711.11561.pdf)
  
  - CNN을 공격(제 기능을 하지 못하도록)하는 여러 방법들.
    - adversarial example : noise를 섞어서, 인간은 알아볼 수 있는데 기계학습 모델은 알아보지 못하도록 하는 것
