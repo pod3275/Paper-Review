@@ -1,5 +1,5 @@
-# [2] Learning Graph Representations with Embedding Propagation
- - NIPS 2017, Alberto García-Durán and Mathias Niepert (NEC Labs Europe), [pdf](https://papers.nips.cc/paper/7097-learning-graph-representations-with-embedding-propagation.pdf)
+# Learning Graph Representations with Embedding Propagation
+ - Alberto García-Durán and Mathias Niepert (NEC Labs Europe), NIPS 2017, [pdf](https://papers.nips.cc/paper/7097-learning-graph-representations-with-embedding-propagation.pdf)
  
  - Graph data를 vector에 mapping하는 기법.
  - 기존 기법 : Embedding Propagation (EP)
