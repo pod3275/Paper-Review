@@ -1,4 +1,4 @@
-# [1] Self-Normalizing Neural Networks
+# Self-Normalizing Neural Networks
  - 저자 : Günter Klambauer, Thomas Unterthiner, Andreas Mayr, Sepp Hochreiter
  - 학회 : NIPS 2017
  - 논문 링크 : [[pdf]](http://papers.nips.cc/paper/6698-self-normalizing-neural-networks.pdf)
