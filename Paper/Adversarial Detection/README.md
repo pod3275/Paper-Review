@@ -1,2 +1,2 @@
 ### Adversarial Detection
-[1] Günter Klambauer, Thomas Unterthiner, Andreas Mayr, Sepp Hochreiter, "**Self-Normalizing Neural Networks**", NIPS 2017, [[pdf]](http://papers.nips.cc/paper/6698-self-normalizing-neural-networks.pdf)
+[1] Nicholas Carlini, David Wagner, "**Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods**", Proc. of the 10th ACM Workshop on Artificial Intelligence and Security (AISec'17), 2017. [[pdf]](https://arxiv.org/pdf/1705.07263.pdf)
