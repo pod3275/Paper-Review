@@ -17,4 +17,17 @@
 	2. Perfect-Knowledge : Detector 존재 + parameter 접근 가능. Loss-function 선택 (제안)공격.
 	3. Limit-Knowledge : Detector 존재 알지만 parameter 접근 불가. 2.의 transferability.
   
-- 
+## Defense Method (F: classification model, D: detector)
+### 1. Adversarial Retraining
+(1) : Clean(N class)에 대해 Fbase 학습 -> F에 의해 adv img 생성 -> clean + (adv img, N+1) 데이터로 Fsecured 학습
+(2) : Fsecured 대신 이를 이용하여 새 binary model D를 학습.
+- 학습 : MNIST
+- 결과
+	- Zero : (MNIST) (1),(2) : FGSM, JSMA : 100% 근방. 
+	- C&W (1) 98.5%. (2) 98% 
+	- (CIFAR10) (1),(2) : 70%.
+	- Perfect : (2) : classifier + defender = G 정의, 이에 대한 adv 생성. (1),(2) : attack 성공 100%.
+	- Limit : 대체 모델 R1, R2  R1으로 adv 생성  R2 평가. (1),(2) : attack 성공 98%.
+- 단점
+	- Image input. Input의 차원이 크므로 detector 학습이 오래 걸릴 것이다.
+
