@@ -19,7 +19,8 @@
   
 ## Defense Method (F: classification model, D: detector)
 ### 1. Adversarial Retraining
-(1) : Clean(N class)에 대해 Fbase 학습 -> F에 의해 adv img 생성 -> clean + (adv img, N+1) 데이터로 Fsecured 학습
+(1) : Clean(N class)에 대해 Fbase 학습 -> F에 의해 adv img 생성 -> clean + (adv img, N+1) 데이터로 Fsecured 학습.
+
 (2) : Fsecured 대신 이를 이용하여 새 binary model D를 학습.
 - 학습 : MNIST
 - 결과
