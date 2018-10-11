@@ -32,3 +32,30 @@
 - 단점
 	- Image input. Input의 차원이 크므로 detector 학습이 오래 걸릴 것이다.
 
+ 	![image](https://user-images.githubusercontent.com/26705935/46799258-4a938780-cd8f-11e8-983c-b31e1fe160c5.png)
+	- G Model : Classifier, detector 구분되어 있는 NN 모델에 사용됨
+
+### 2. Examining Convolution Layers
+- 각 conv layer의 feature들로 yes/no를 도출하는 detector 학습.
+- Only CIFAR
+- 결과
+	- 실제 구현 시, detector 학습하는 게 hyperparameter에 매우 sensitive하다.
+	- Zero : C&W, 81% positive rate, 28% false positive rate. 원 논문에서 말한 99%는 약한 공격에 대함이었다. 성능 좋지 않음.
+	- Perfect : 위의 G 모델에 C&W 사용. 공격 성공.
+	- Limited : 위의 transferability. 84%~98% (low and high confidence adv example) attack 가능.
+
+### 3. PCA Detection
+- PCA는 N dim을 k dim으로 linear transformation하는 방법.
+
+(1) Input Image PCA
+- 가정 : Adv image place a higher weight on the larger principal components than clean image.
+- MNIST, C&W 공격으로 adv 만들어서 각 principal component의 분포를 봄.
+- 원 논문 저자 말이 맞지만, 이건 MNIST가 border pixel이 대부분 0이어서 그럼. CIFAR 데이터에서는 차이가 없다.
+- 결국 MNIST용임.
+
+(2) Dimension Reduction
+- N dim --> K dim으로 linear transformation하고, 이를 이용하여 FCNN training: first K component만을 보는게 attacker입장에서 제한이 될 수 있음.
+- FCNN : 2 hidden layers of 100 units. 26개의 다른 model (K:9~784). 
+- 결과(Zero) : 25 dimension 이하는 낮고, 25이상은 97% 이상의 detect accuracy.
+- Perfect : 99.5% 공격 성공률.
+
