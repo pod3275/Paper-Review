@@ -34,7 +34,7 @@
 
  	![image](https://user-images.githubusercontent.com/26705935/46799258-4a938780-cd8f-11e8-983c-b31e1fe160c5.png)
 	- G Model : Classifier, detector 구분되어 있는 NN 모델에 사용됨
-
+---
 ### 2. Examining Convolution Layers
 - 각 conv layer의 feature들로 yes/no를 도출하는 detector 학습.
 - Only CIFAR
@@ -43,7 +43,7 @@
 	- Zero : C&W, 81% positive rate, 28% false positive rate. 원 논문에서 말한 99%는 약한 공격에 대함이었다. 성능 좋지 않음.
 	- Perfect : 위의 G 모델에 C&W 사용. 공격 성공.
 	- Limited : 위의 transferability. 84%~98% (low and high confidence adv example) attack 가능.
-
+---
 ### 3. PCA Detection
 - PCA는 N dim을 k dim으로 linear transformation하는 방법.
 
@@ -70,7 +70,7 @@
 		- C&W, MNIST : 62% true positive rate, 37% false positive rate. 92% false positive rate
 		- C&W, CIFAR : 56%, 40%, 98% false positive rate
 - C&W 공격에 대해서는 잘 안됨.
-
+---
 ### 4. Distribution Detection
 - clean과 adv의 분포를 이용하여 detect. Classical Statistical Method.
 
@@ -96,7 +96,7 @@
 	- Zero : C&W, MNIST는 잘되는데 CIFAR는 안됨. (CIFAR에서는 80%이상의 adv가 KDE가 t보다 컸음)
 	- Perfect : 새로운 loss function 만들어서 공격했더니 MNIST에서도 공격이 잘 된다.
 	- Limited : 공격 성공.
-
+---
 ### 5. Normalization Detection
 (1) Dropout Randomization
 - Bayesian Neural Network Uncertainty : NN의 uncertainty를 측정.
