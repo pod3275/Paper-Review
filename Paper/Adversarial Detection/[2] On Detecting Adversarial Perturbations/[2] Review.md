@@ -28,7 +28,7 @@
   - 이에 대한 defense를 제안.
     - **dynamic adversary training : 즉각적으로 adversarial이면 확률 0.5, 0.5로 맞춘다? 로 adversarial image를 생성해서, 이를 training.**
 
-## 실험 1. CIFAR10
+## Experiment 1. CIFAR10
 - Classification Model 학습
   - 32-layer ResNet
   - 45000 training data + 100 epochs + SGD with momentum(=0.9), learning rate=0.1(after 41 epochs: 0.01, after 61 epochs: 0.001)
@@ -69,7 +69,7 @@
   - Iterative FGSM에 의힌 adversarial image로 학습하고, FGSM에 의한 adversarial image로 test 하는건 잘 되지만, 반대는 성능이 낮음.
 	- 센 공격기법에 의한 adv example로 학습해야 함. (예를 들어 DeepFool)
 
-## 실험 2. 10-class ImageNet
+## Experiment 2. 10-class ImageNet
 - Class를 10개로 줄인 이유
   - Computational power를 줄이기 + 너무 비슷한 class로 간단화 하는 adversary를 피하기 위함.
   
