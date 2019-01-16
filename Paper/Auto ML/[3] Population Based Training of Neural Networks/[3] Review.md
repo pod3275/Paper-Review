@@ -88,3 +88,36 @@
       - **Resample** : 그냥 다 무시하고 새로 뽑기.
 6. 모델 학습이 끝날 때까지 3, 4, 5를 반복.
   
+- 특징
+  - Model selection(weight 학습)과 hyperparameter optimization을 동시에 진행.
+  - Exploit은 non-differentiable하고 expensive한 metric에도 사용될 수 있음.
+    - 예를 들어, testset에 대한 정확도 뿐만 아니라, 기계 번역의 BLEU score, human normalized performance 등
+  - 모든 worker는 explore(새로운 지역 탐색)의 benefit을 나눠 받음.
+  
+## Experiments
+- 3가지 learning problem에 대한 기존 모델에 PBT를 적용
+  - RL(Reinforcement Learning), MT(Machine Translation), GAN(Generative Adversarial Networks)
+  
+### 1. RL (Reinforcement Learning)
+- 강화학습의 neural network 구조의 agent를 학습.
+  - Expected episodic(임시적인, 중간) reward E를 maximize하는 action의 집합 policy를 찾자.
+  
+- 3가지 task 및 모델
+  - DeepMind Lab, UNREAL (Jaderberg et al., 2016)
+  - Atari games, Feudal Networks (Vezhnevets et al., 2017)
+  - StarCraft 2, A3C baseline agents (Vinyals et al., 2017)
+
+- 실험 setting
+  - Hyperparameter : learning rate, entropy cost 등 4개.
+  - Step : RMSProp의 1 step.
+  - Baseline : 같은 worker 수로 random search하여 찾은 모델.
+
+- 결과
+
+  ![image](https://user-images.githubusercontent.com/26705935/51258936-748fc200-19ee-11e9-8ade-db88e2edbe0e.png)
+  
+  - 성능 향상이 있었다. Measure가 hunam normalized performance임.
+  - 추가적으로, PBT가 진행되면 될수록 hyperparameter 값의 특정한 변화(계속 내려간다든지)가 나타남.
+  
+### 2. MT (Machine Translation)
+- State of the art 모델인 *Transformer* network (Vaswani et al., 2017) 를 tuning하자.
