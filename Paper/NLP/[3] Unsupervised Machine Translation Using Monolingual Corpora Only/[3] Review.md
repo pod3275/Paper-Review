@@ -2,7 +2,7 @@
 - 저자 : Guillaume Lample, Alexis Conneau, Ludovic Denoyer, Marc'Aurelio Ranzato
 - 학회 : ICLR 2018
 - 날짜 : 2018.04.13
-- 논문 : [[pdf]](https://arxiv.org/pdf/1711.00043.pdf)
+- 논문 : [paper](https://arxiv.org/pdf/1711.00043.pdf)
 
 ## 서론
 - 현재까지 deep learning 분야의 많은 연구로 NMT(Neural Machine Translation)의 성능은 가면 갈수록 좋아지고 있다.
