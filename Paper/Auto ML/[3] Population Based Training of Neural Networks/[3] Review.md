@@ -1,4 +1,4 @@
-# Adversarial Examples Are Not Easily Detected: Bypassing Ten Detection Methods
+# Population Based Training of Neural Networks
 - Max Jaderberg, Valentin Dalibard, Simon Osindero, et al. 2017, 64회 인용.
 - (약간 다른 제목이지만) 저자가 직접 NIPS 2017에서 발표한 [자료](https://vimeo.com/250399261)가 있음. 근데 NIPS 2017 accepted paper는 아님.
 - 후에 발견 : 발표 유투브 [동영상](https://www.youtube.com/watch?v=l-Ga0E9vldg)도 있음.
@@ -120,4 +120,4 @@
   - 추가적으로, PBT가 진행되면 될수록 hyperparameter 값의 특정한 변화(계속 내려간다든지)가 나타남.
   
 ### 2. MT (Machine Translation)
-- State of the art 모델인 *Transformer* network (Vaswani et al., 2017) 를 tuning하자.
+- State of the art 모델인 *Transformer* network (Vaswani et al., 2017, [paper](https://arxiv.org/pdf/1706.03762.pdf)) 를 tuning하자.
