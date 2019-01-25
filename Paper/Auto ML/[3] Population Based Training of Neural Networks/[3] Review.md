@@ -101,7 +101,7 @@
   
 ### 1. RL (Reinforcement Learning)
 - 강화학습의 neural network 구조의 agent를 학습.
-  - Expected episodic(임시적인, 중간) reward E를 maximize하는 action의 집합 policy를 찾자.
+  - 강화학습: Expected episodic(임시적인, 중간) reward E를 maximize하는 action의 집합 policy를 찾자.
   
 - 3가지 task 및 모델
   - DeepMind Lab, UNREAL (Jaderberg et al., 2016)
@@ -121,4 +121,32 @@
   - 추가적으로, PBT가 진행되면 될수록 hyperparameter 값의 특정한 변화(계속 내려간다든지)가 나타남.
   
 ### 2. MT (Machine Translation)
-- State of the art 모델인 *Transformer* network (Vaswani et al., 2017, [paper](https://arxiv.org/pdf/1706.03762.pdf)) 를 tuning하자.
+- State of the art 모델인 *Transformer* network (Vaswani et al., 2017, [paper](https://arxiv.org/pdf/1706.03762.pdf)) 를 tuning 하자.
+
+- 실험 setting
+  - 데이터 : [WMT 2014](http://www.statmt.org/wmt14/)의 English-to-German parallel data.
+  - Hyperparameter : learning rate 및 3개의 dropout rate.
+  - Eval measure : BLEU score on WMT newstest2012 dataset.
+  - Exploit : binary tournament / Explore : perturb.
+  - Baseline : hand tuning 또는 Bayesian Optimization으로 최적화된 모델.
+  
+- 결과
+  
+  ![image](https://user-images.githubusercontent.com/26705935/51748683-865d1d80-20f0-11e9-8b8f-af5a41a88b20.png)
+  
+  - 아쉽지만 SOTA(State-Of-The-Art)는 아님. (기존 Transformer 모델이 너무 커서, 작은 모델로 실험함)
+
+  ![image](https://user-images.githubusercontent.com/26705935/51748770-c9b78c00-20f0-11e9-9b4b-dd91f37f8a22.png)
+  
+  - learning rate 보면 학습을 하면 할수록 특정 형태를 띄는 걸 알 수 있음. (계속 내려감)
+  
+### 3. GAN
+- 위의 실험과 거의 동일, 결과도 동일해서 생략함.
+  - 결국 성능 향상은 있었다.
+  
+## Conclusion
+- ***PBT(Population Based Training)*** 이라는 최적화 기법을 제시함.
+  - 유전 알고리즘을 기반으로 함.
+  - Parallel search와 sequential optimization의 조합.
+  - 모델의 weight과 hyperparameter를 동시에 최적화.
+  - Hyperparameter의 **adaptive scheduling**이 가능함.
