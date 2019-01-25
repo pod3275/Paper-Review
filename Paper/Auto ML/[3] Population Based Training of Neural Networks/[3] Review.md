@@ -138,7 +138,7 @@
 
   ![image](https://user-images.githubusercontent.com/26705935/51748770-c9b78c00-20f0-11e9-9b4b-dd91f37f8a22.png)
   
-  - learning rate 보면 학습을 하면 할수록 특정 형태를 띄는 걸 알 수 있음. (계속 내려감)
+  - learning rate 보면 학습을 하면 할수록 **특정 형태**를 띄는 걸 알 수 있음. (계속 내려감)
   
 ### 3. GAN
 - 위의 실험과 거의 동일, 결과도 동일해서 생략함.
